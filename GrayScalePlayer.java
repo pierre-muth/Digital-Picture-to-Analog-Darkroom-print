@@ -34,8 +34,6 @@ public class GrayScalePlayer extends JPanel implements ActionListener{
 	private static String A_OPEN = "OPEN";
 	private static String A_START = "START";
 
-//	private int[] calibration3000 = new int[] {255,247,214,181,148,120,97,82,66,56,46,38,31,25,23,20,18,15,13,11,8,0};
-	private int[] calibration3000 = new int[] {255,247,214,181,148,120,97,82,66,56,46,38,31,25,23,20,18,15,13,11,8,0};
 	private int[] timings = new int[256];
 	
 	private ImageIcon[] stepsImages = new ImageIcon[256];
@@ -68,21 +66,6 @@ public class GrayScalePlayer extends JPanel implements ActionListener{
 	}
 	
 	private void computeTimings(){
-//		int cummulated = 0;
-//		for (int cal_i = calibration3000.length-1; cal_i > 0; cal_i--) {
-//			int start = calibration3000[cal_i];
-//			int stop = calibration3000[cal_i -1];
-//			int lumSpan = stop-start;
-//			int timeStep = (int) (3000.0/lumSpan);
-//			
-//			for (int i = start; i < stop; i++) {
-//				timings[i] = (timeStep);
-//				cummulated += timings[i];
-//				System.out.println("for gray " +i+", exposure "+timings[i] +"ms, cummulated: "+cummulated);
-//			}
-//			
-//		}
-//		timings[255] = 0;
 
 		int cumulatedTimeMs = 0;
 		for (int i = 5; i < 256; i++) {
@@ -158,7 +141,7 @@ public class GrayScalePlayer extends JPanel implements ActionListener{
 		g.drawImage(sourceImage, 0, 0, null);
 		g.dispose();
 
-		//
+		// to output images on file
 //		IIOImage outputImage;
 //		FileImageOutputStream outputStream;
 //		ImageWriter imageWriter = ImageIO.getImageWritersByFormatName("bmp").next();
@@ -182,7 +165,7 @@ public class GrayScalePlayer extends JPanel implements ActionListener{
 			
 			stepsImages[i] = new ImageIcon(stepImage);
 			
-			//
+			// to output images on file
 //			outputImage = new IIOImage(stepImage, null, null);
 //			outputStream = new FileImageOutputStream( new File("C:\\Users\\muthi\\Pictures\\DAP\\anim\\"+String.format("%03d", i)+".bmp") );
 //			imageWriter.setOutput(outputStream);
